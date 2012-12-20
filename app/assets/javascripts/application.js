@@ -13,3 +13,25 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+
+// Load scripts after page loads
+$(document).ready(function(){
+
+	// On DocReady fade in content frame
+	$('.sliding-frame').fadeIn(800);
+
+	// Logo animation
+	$('a').click(function(){
+		var href = $(this).attr('href');
+		setTimeout(function() {window.location = href}, 400);
+		return false;
+	});
+
+	// Bind scroll wheel to scroll horizontally
+	$('body').bind('mousewheel', function(event, delta) {
+	    this.scrollLeft -= (delta * 80);
+		event.preventDefault();
+	});
+
+});

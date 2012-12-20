@@ -1,15 +1,36 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE HTML>
+<html lang="en">
 <head>
-  <title>Backlog</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
+	<title>Backlog</title>
+
+	<%= csrf_meta_tags %>
+
+	<link href="data:image/x-icon;base64,AAABAAEAEBACAAAAAACwAAAAFgAAACgAAAAQAAAAIAAAAAEAAQAAAAAAQAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAKSkpAAAAAAAAAAAAAAAAADgcAABEIgAAgkEAAIGBAACBgQAAgkEAAEQiAAA4HAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//wAA//8AAP//AADH4wAAu90AAH2+AAB+fgAAfn4AAH2+AAC73QAAx+MAAP//AAD//wAA//8AAP//AAD//wAA" rel="icon" type="image/x-icon" />
+	<!-- Load Open Sans font family -->
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+	<%= stylesheet_link_tag    "application", :media => "all" %>
 </head>
 <body>
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+	<!-- Global Header -->
+	<section class="static-frame">
+		<header id="global-header">
+			<section class="left">
+				<a href="/">
+					<div id="logo" class="logo-wrapper">
+						<%= image_tag("logo.png", :class => "logo-inner", :alt => "Backlog") %>
+					</div>
+				</a>
+				<div id="search-trigger"></div>
+				<%= link_to 'anime', anime_index_path %>
+			</section>
+		</header>
+	</section>
+	<!-- Alert + Notice -->
+	<section class="alerts">
+		<p class="notice"><%= notice %></p>
+		<p class="alert"><%= alert %></p>
+	</section>
 <%= yield %>
-
+<%= javascript_include_tag "application" %>
 </body>
 </html>

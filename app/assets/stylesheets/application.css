@@ -11,3 +11,12 @@
  *= require_self
  *= require_tree .
 */
+
+// Reset
+@import "_reset.scss";
+
+// Styles
+@import "_styles.scss";
+
+// Grid
+@import "_grid.scss";

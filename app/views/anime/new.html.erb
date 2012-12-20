@@ -1,5 +1,15 @@
-<h1>New anime</h1>
+<section class="sliding-frame grid">
+  <section class="meta-frame frame span2">
+    <div class="segment meta-list">
+      <h1>New anime</h1>
+	  <%= link_to 'Back', anime_index_path %>
+    </div>
+  </section>
+  <section class="primary-info-frame frame span4">
+    <div class="segment primary-image">
+      <%= render 'form' %>
+    </div>
+  </section>
+</section>
 
-<%= render 'form' %>
 
-<%= link_to 'Back', anime_index_path %>

@@ -80,4 +80,13 @@ class AnimeController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  # tagged controller, for use with acts_as_taggable_on
+  def tagged
+      if params[:tag].present? 
+      @anime = Anime.tagged_with(params[:tag])
+    else 
+      @anime = Anime.postall
+    end  
+  end
 end

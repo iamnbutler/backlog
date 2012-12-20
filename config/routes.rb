@@ -2,6 +2,7 @@ Backlog::Application.routes.draw do
   devise_for :users
 
   resources :anime
+  match 'tagged' => 'anime#tagged', :as => 'tagged'
 
   root :to => 'anime#index'
 
