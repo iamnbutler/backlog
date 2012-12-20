@@ -1,6 +1,6 @@
 <section class="sliding-frame grid">
-  <section class="list-frame frame span2">
-    <div class="segment anime-list">
+  <section class="list-frame frame span4">
+    <div class="segment anime-list list">
       <h1>Anime</h1>
       <ul>
         <% @anime.each do |anime| %>
@@ -12,6 +12,46 @@
       <%= link_to 'New Anime', new_anime_path %>
     </div>
   </section>
+  <section class="list-frame frame span2">
+    <div class="tags segment top-list">
+      <h1>Browse Tags</h1>
+      <ol>
+        <% @tags.each do |tag| %>
+          <li>
+            <div class="left"><%= link_to tag.name, tag_url(:tag => tag.name) %></div>
+            <div class="right"><%= tag.count %></div>
+          </li>
+        <% end %>
+      </ol>
+    </div>
+    <div class="tags segment top-list">
+      <h1>Browse Studios</h1>
+      <ol>
+        <% @studios.each do |studio| %>
+          <li>
+            <div class="left"><%= link_to studio.name, studio_url(:studio => studio.name) %></div>
+            <div class="right"><%= studio.count %></div>
+          </li>
+        <% end %>
+      </ol>
+    </div>
+  </section>
+  <section class="featured-frame frame span4">
+    <div class="random-anime segment">
+      <h1>Random Anime</h1>
+      <div class="img-wrapper">
+        <div class="pull-watching pull-info">8.5</div>
+        <img src="<%= image_path("anime/" + @random_anime.title.parameterize + ".jpg") %>" alt="<%= @random_anime.title %>">
+        <div class="header-bar">
+          <div class="header-inner">
+            <h2><%= link_to @random_anime.title, @random_anime %></h2>
+            <div class="backlog">Add to Backlog</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="last-season-highlight segment">
+      
+    </div>
+  </section>
 </section>
-
-

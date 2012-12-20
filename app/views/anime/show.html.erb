@@ -20,10 +20,16 @@
     <div class="segment synopsis">
       <h1>Synopsis</h1>
       <p><%= @anime.synopsis %></p>
+      <hr>
       <% @anime.tags.any? %>
         <% @anime.tags.each do |tag| %>
-        <%= link_to tag.name, tagged_url(:tag => tag.name) %>
-	<% end %>
+        <%= link_to tag.name, tag_url(:tag => tag.name) %>
+	  <% end %>
+	  <hr>
+	  <% @anime.studios.any? %>
+        <% @anime.studios.each do |studio| %>
+        <%= link_to studio.name, studio_url(:studio => studio.name) %>
+	  <% end %>
     </div>
   </section>
 </section>

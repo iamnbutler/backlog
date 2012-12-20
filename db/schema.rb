@@ -11,19 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121220185826) do
+ActiveRecord::Schema.define(:version => 20121220211036) do
 
   create_table "anime", :force => true do |t|
     t.string   "title"
     t.text     "synopsis"
     t.integer  "year"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
     t.string   "season"
     t.string   "airing_date"
     t.string   "airing_time"
     t.string   "media_type"
-    t.string   "animation_studio"
   end
 
   create_table "taggings", :force => true do |t|

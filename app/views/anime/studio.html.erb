@@ -1,0 +1,16 @@
+<section class="sliding-frame grid">
+  <section class="list-frame frame span2">
+    <div class="segment anime-list">
+      <h1>Anime tagged</h1>
+      <ul>
+        <% @anime.each do |anime| %>
+          <li>
+            <%= link_to anime.title, anime %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </section>
+</section>
+
+

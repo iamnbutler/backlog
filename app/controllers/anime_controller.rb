@@ -3,6 +3,9 @@ class AnimeController < ApplicationController
   # GET /anime.json
   def index
     @anime = Anime.all
+    @tags = Anime.tag_counts_on(:tags, :limit => 10, :order => "count desc")
+    @studios = Anime.tag_counts_on(:studios, :limit => 10, :order => "count desc")
+    @random_anime = Anime.first(:offset => rand(Anime.count))
 
     respond_to do |format|
       format.html # index.html.erb
@@ -81,10 +84,19 @@ class AnimeController < ApplicationController
     end
   end
 
-  # tagged controller, for use with acts_as_taggable_on
-  def tagged
+  # tag controller, for use with acts_as_taggable_on
+  def tag
       if params[:tag].present? 
       @anime = Anime.tagged_with(params[:tag])
+    else 
+      @anime = Anime.postall
+    end  
+  end
+
+  # studio controller, for use with acts_as_taggable_on
+  def studio
+      if params[:studio].present? 
+      @anime = Anime.tagged_with(params[:studio])
     else 
       @anime = Anime.postall
     end  
