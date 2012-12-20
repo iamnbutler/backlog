@@ -1,5 +1,9 @@
 Backlog::Application.routes.draw do
+  devise_for :users
+
   resources :anime
+
+  root :to => 'anime#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
