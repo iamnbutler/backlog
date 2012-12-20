@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @anime.title %>
+</p>
+
+<p>
+  <b>Synopsis:</b>
+  <%= @anime.synopsis %>
+</p>
+
+<p>
+  <b>Year:</b>
+  <%= @anime.year %>
+</p>
+
+
+<%= link_to 'Edit', edit_anime_path(@anime) %> |
+<%= link_to 'Back', anime_index_path %>
