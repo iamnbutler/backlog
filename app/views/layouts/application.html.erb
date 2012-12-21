@@ -24,6 +24,12 @@
 				<%= link_to 'anime', anime_index_path %>
 			</section>
 			<div class="right">
+				<% if user_signed_in? %>
+					<%= link_to current_user.username, edit_user_registration_path %>
+				<% else %>
+					<%= link_to 'register', new_user_registration_path %>
+					<%= link_to 'sign in', new_user_session_path %>
+				<% end %>
 			</div>
 		</header>
 	</section>
