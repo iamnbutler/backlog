@@ -10,6 +10,7 @@ gem 'devise'
 
 # Gem for tagging entries
 gem 'acts-as-taggable-on'
+gem 'acts-as-rateable'
 
 # Simplifies form building
 gem 'simple_form'
