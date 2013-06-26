@@ -1,44 +1,15 @@
-<!DOCTYPE HTML>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-	<title>Backlog</title>
-
-	<%= csrf_meta_tags %>
-
-	<link href="data:image/x-icon;base64,AAABAAEAEBACAAAAAACwAAAAFgAAACgAAAAQAAAAIAAAAAEAAQAAAAAAQAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAKSkpAAAAAAAAAAAAAAAAADgcAABEIgAAgkEAAIGBAACBgQAAgkEAAEQiAAA4HAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//wAA//8AAP//AADH4wAAu90AAH2+AAB+fgAAfn4AAH2+AAC73QAAx+MAAP//AAD//wAA//8AAP//AAD//wAA" rel="icon" type="image/x-icon" />
-	<!-- Load Open Sans font family -->
-	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-	<%= stylesheet_link_tag    "application", :media => "all" %>
+  <title>Backlog</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
 </head>
 <body>
-	<!-- Global Header -->
-	<section class="static-frame">
-		<header id="global-header">
-			<section class="left">
-				<a href="/">
-					<div id="logo" class="logo-wrapper">
-						<%= image_tag("logo.png", :class => "logo-inner", :alt => "Backlog") %>
-					</div>
-				</a>
-				<div id="search-trigger"></div>
-				<%= link_to 'anime', anime_index_path %>
-			</section>
-			<div class="right">
-				<% if user_signed_in? %>
-					<%= link_to current_user.username, edit_user_registration_path %>
-				<% else %>
-					<%= link_to 'register', new_user_registration_path %>
-					<%= link_to 'sign in', new_user_session_path %>
-				<% end %>
-			</div>
-		</header>
-	</section>
-	<!-- Alert + Notice -->
-	<section class="alerts">
-		<p class="notice"><%= notice %></p>
-		<p class="alert"><%= alert %></p>
-	</section>
+	
+<%= render "header/header" %>
 <%= yield %>
-<%= javascript_include_tag "application" %>
+
 </body>
 </html>

@@ -1,35 +1,19 @@
-<section class="sliding-frame grid">
-  <section class="meta-frame frame span2">
-    <header class="segment media-header">
-      <img src="<%= image_path("anime/" + @anime.title.parameterize + "-cover.jpg") %>" alt="<%= @anime.title %>">
-      <h1><%= @anime.title %></h1>
-      <h2><%= @anime.year %></h2>
-    </header>
-    <div class="segment synopsis">
-      <p><%= @anime.synopsis %></p>
-    </div>
-    <div class="segment meta-list">
-      <ul>
-        <li><% @anime.media_type %></li>
-      </ul>
-      <%= link_to 'Edit', edit_anime_path(@anime) %> |
-      <%= link_to 'Back', anime_index_path %>
-    </div>
-  </section>
-  <section class="primary-info-frame frame span4">
-    <div class="segment synopsis">
-      <h1>Synopsis</h1>
-      <p><%= @anime.synopsis %></p>
-      <hr>
-      <% @anime.tags.any? %>
-        <% @anime.tags.each do |tag| %>
-        <%= link_to tag.name, tag_url(:tag => tag.name) %>
-	  <% end %>
-	  <hr>
-	  <% @anime.studios.any? %>
-        <% @anime.studios.each do |studio| %>
-        <%= link_to studio.name, studio_url(:studio => studio.name) %>
-	  <% end %>
-    </div>
-  </section>
-</section>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @anime.name %>
+</p>
+
+<p>
+  <strong>Year:</strong>
+  <%= @anime.year %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @anime.description %>
+</p>
+
+<%= link_to 'Edit', edit_anime_path(@anime) %> |
+<%= link_to 'Back', anime_index_path %>

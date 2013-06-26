@@ -1,72 +1,51 @@
 class AnimeController < ApplicationController
+  before_action :set_anime, only: [:show, :edit, :update, :destroy]
+
   # GET /anime
   # GET /anime.json
   def index
     @anime = Anime.all
-    @tags = Anime.tag_counts_on(:tags, :limit => 10, :order => "count desc")
-    @studios = Anime.tag_counts_on(:studios, :limit => 10, :order => "count desc")
-    @random_anime = Anime.first(:offset => rand(Anime.count))
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @anime }
-    end
   end
 
   # GET /anime/1
   # GET /anime/1.json
   def show
-    @anime = Anime.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @anime }
-    end
   end
 
   # GET /anime/new
-  # GET /anime/new.json
   def new
     @anime = Anime.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @anime }
-    end
   end
 
   # GET /anime/1/edit
   def edit
-    @anime = Anime.find(params[:id])
   end
 
   # POST /anime
   # POST /anime.json
   def create
-    @anime = Anime.new(params[:anime])
+    @anime = Anime.new(anime_params)
 
     respond_to do |format|
       if @anime.save
         format.html { redirect_to @anime, notice: 'Anime was successfully created.' }
-        format.json { render json: @anime, status: :created, location: @anime }
+        format.json { render action: 'show', status: :created, location: @anime }
       else
-        format.html { render action: "new" }
+        format.html { render action: 'new' }
         format.json { render json: @anime.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # PUT /anime/1
-  # PUT /anime/1.json
+  # PATCH/PUT /anime/1
+  # PATCH/PUT /anime/1.json
   def update
-    @anime = Anime.find(params[:id])
-
     respond_to do |format|
-      if @anime.update_attributes(params[:anime])
+      if @anime.update(anime_params)
         format.html { redirect_to @anime, notice: 'Anime was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
+        format.html { render action: 'edit' }
         format.json { render json: @anime.errors, status: :unprocessable_entity }
       end
     end
@@ -75,30 +54,21 @@ class AnimeController < ApplicationController
   # DELETE /anime/1
   # DELETE /anime/1.json
   def destroy
-    @anime = Anime.find(params[:id])
     @anime.destroy
-
     respond_to do |format|
       format.html { redirect_to anime_index_url }
       format.json { head :no_content }
     end
   end
 
-  # tag controller, for use with acts_as_taggable_on
-  def tag
-      if params[:tag].present? 
-      @anime = Anime.tagged_with(params[:tag])
-    else 
-      @anime = Anime.postall
-    end  
-  end
+  private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_anime
+      @anime = Anime.find(params[:id])
+    end
 
-  # studio controller, for use with acts_as_taggable_on
-  def studio
-      if params[:studio].present? 
-      @anime = Anime.tagged_with(params[:studio])
-    else 
-      @anime = Anime.postall
-    end  
-  end
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def anime_params
+      params.require(:anime).permit(:name, :year, :description)
+    end
 end
