@@ -1,0 +1,55 @@
+/*** 
+
+ANIME INFO
+
+***/
+
+.anime-info {
+	$feature-block-width: 600px;
+	$feature-block-height: 220px;
+
+	.feature-block {
+		position: relative;
+		width: $feature-block-width;
+		height: $feature-block-height;
+		overflow: hidden;
+	}
+
+	.feature-block .image {
+		width: $feature-block-width;
+		height: $feature-block-height;
+		background-color: #F1F1F1;
+	}
+
+	// Remove this after production
+	.feature-block .image.placeholder {
+		line-height: 220px;
+		text-align: center;
+		text-transform: uppercase;
+		font-size: 90%;
+		letter-spacing: 0.1em;
+		a {
+			color: #1A8FCE;
+		}
+	}
+	
+	.title-block {
+		height: 56px;
+		width: 600px;
+		background-color: #222;
+		.anime-title {
+			float: left;
+			color: white;
+			padding: 18px 16px;
+			font-size: 20px;
+		}
+	}
+
+	.description-block {
+		padding: 12px 16px;
+		p {
+			font-size: 20px;
+			line-height: 30px;
+		}
+	}
+}

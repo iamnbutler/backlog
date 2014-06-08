@@ -1,3 +1,22 @@
+<!-- start modules -->
+  <div class="current-season home-module">
+    <h3 class="module-title">Anime</h3>
+    <div class="module-inner scrollable">
+      <ul class="airing-soon-anime">
+        <% @anime.each do |anime| %>
+          <li>
+            <div class="icon"></div>
+            <%= link_to anime.name, anime, :class => "name" %>
+            <div class="air-time"><%= anime.series.name %></div>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+    <h3 class="module-title">Series</h3>
+    
+  </div>
+
+<% if false %>
 <h1>Listing anime</h1>
 
 <table>
@@ -29,3 +48,5 @@
 <br>
 
 <%= link_to 'New Anime', new_anime_path %>
+
+<% end %>

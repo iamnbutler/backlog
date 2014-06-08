@@ -1,19 +1,49 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @anime.name %>
-</p>
+<section class="two-col six-three anime-info">
+	<div class="col left-col">
+		<div class="feature-block">
+			<!-- Anime cover image -->
+			<% if false %>
+				<div class="image"></div>
+			<% else %>
+				<div class="image placeholder">No Feature Image Yet. <%= link_to 'Add one →', edit_anime_path(@anime) %></div>
+			<% end %>
+		</div>
+		<div class="title-block">
+			<!-- Primary Title -->
+			<%= link_to @anime.name, @anime, :class => "anime-title" %>
+		</div>
+		<div class="description-block">
+			<p><%= @anime.description %></p>
+		</div>
 
-<p>
-  <strong>Year:</strong>
-  <%= @anime.year %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @anime.description %>
-</p>
-
-<%= link_to 'Edit', edit_anime_path(@anime) %> |
-<%= link_to 'Back', anime_index_path %>
+	</div>
+	<div class="col right-col">
+		<div class="meta-sidebar">
+			<div class="module-title">Details</div>
+			<ul>
+				<li class="small">Studio: 
+					<% if anime_studio? %>
+						<%= @anime.studio.name %>
+					<% else %>
+						<%= link_to 'Add Studio', edit_anime_path(@anime) %>
+					<% end %>
+				</li>
+				<li>Series: 
+					<%= @anime.series.name %>
+				</li>
+			</ul>
+		</div>
+		<div class="meta-sidebar">
+			<div class="module-title">Series</div>
+			<ul>
+				<% @anime.series.name do |series| %>
+					<li>
+						<%= link_to @anime.series.name %>
+					</li>
+				<% end %>
+			</ul>
+		</div>
+	</div>
+</section>

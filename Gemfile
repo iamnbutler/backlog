@@ -1,5 +1,14 @@
 source 'https://rubygems.org'
 
+# Use acts-as-taggable-on for creating tags and listing items
+gem 'acts-as-taggable-on'
+
+# Devise for user model
+gem 'devise'
+
+# Use paperclip to help with file upload methods
+gem 'paperclip'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 

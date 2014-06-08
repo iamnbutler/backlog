@@ -1,4 +1,8 @@
 Backlog::Application.routes.draw do
+  resources :series
+
+  resources :studios
+
   resources :anime
 
   root 'anime#index'
