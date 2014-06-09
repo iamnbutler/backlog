@@ -1,13 +1,43 @@
 <section class="wrapper header-wrapper">
-	<header class="header">
-		<div class="left">
-			<%= link_to image_tag("header_logo_2x.png", :alt => "Backlog: Your Animation Database.", :class => "logo") %>
-			<%= link_to "anime", anime_index_path, :class => "nav-link" %>
-			<%= link_to "series", series_index_path, :class => "nav-link" %>
-			<%= link_to "studio", studios_path, :class => "nav-link" %>
-		</div>
-		<div class="right">
-			
-		</div>
-	</header>
+  <header class="header">
+    <div class="left">
+      <%= link_to image_tag("header_logo_2x.png", :alt => "Backlog: Your Animation Database.", :class => "logo") %>
+      <ul class="site-nav">
+        <li class="nav-link">
+          <%= link_to anime_index_path do %>
+            Anime <i class="fa fa-angle-down"></i>
+          <% end %>
+          <ul class="anime-nav dropdown">
+            <li>Browse Anime</li>
+            <li>Top 100</li>
+            <li><%= link_to "Series", series_index_path, :class => "nav-link" %></li>
+            <li><%= link_to "Studio", studios_path, :class => "nav-link" %></li>
+          </ul>
+        </li>
+        <li class="nav-link">
+          <%= link_to anime_index_path do %>
+            Manga <i class="fa fa-angle-down"></i>
+          <% end %>
+        </li>
+        <li class="nav-link">
+          <%= link_to anime_index_path do %>
+            Games <i class="fa fa-angle-down"></i>
+          <% end %>
+        </li>
+        <li class="nav-link">
+          <%= link_to anime_index_path do %>
+            Music <i class="fa fa-angle-down"></i>
+          <% end %>
+        </li>
+      </ul>
+      
+      <div class="search">
+        <input type="text" class="search-input" placeholder="Search">
+      </div>
+      
+    </div>
+    <div class="right">
+      
+    </div>
+  </header>
 </section>
