@@ -1,8 +1,5 @@
 source 'https://rubygems.org'
 
-# Friendly id to create human readable routes
-gem 'friendly_id', '~> 5.0.0'
-
 # Use acts-as-taggable-on for creating tags and listing items
 gem 'acts-as-taggable-on'
 
