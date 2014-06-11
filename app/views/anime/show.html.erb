@@ -1,13 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<section class="two-col six-three anime-info">
+<section class="anime-info">
 	<div class="col left-col">
 		<div class="feature-block">
 			<!-- Anime cover image -->
 			<% if false %>
 				<div class="image"></div>
 			<% else %>
-				<div class="image placeholder">No Feature Image Yet. <%= link_to 'Add one →', edit_anime_path(@anime) %></div>
+				<div class="image placeholder">No Feature Image Yet. <%= link_to 'Add one now.', edit_anime_path(@anime) %></div>
 			<% end %>
 		</div>
 		<div class="title-block">
@@ -19,7 +19,7 @@
 		</div>
 
 	</div>
-	<div class="col right-col">
+	<!-- <div class="col right-col">
 		<div class="meta-sidebar">
 			<div class="module-title">Details</div>
 			<ul>
@@ -45,5 +45,5 @@
 				<% end %>
 			</ul>
 		</div>
-	</div>
+	</div> -->
 </section>

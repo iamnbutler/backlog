@@ -18,7 +18,7 @@ html, html a {
 }
 
 body {
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: "proxima-nova", sans-serif;
   background-color: #F4F4F4;
 }
 
@@ -42,7 +42,7 @@ a {
 
 .container {
   position: relative;
-  padding-top: 40px;
+  padding-top: 16px;
   width: $container-width;
   min-height: 400px;
   margin: 0 auto;
