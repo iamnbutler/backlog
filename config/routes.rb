@@ -1,4 +1,6 @@
 Backlog::Application.routes.draw do
+  resources :users
+
   resources :series
 
   resources :studios
